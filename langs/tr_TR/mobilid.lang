@@ -1,0 +1,637 @@
+# Dolibarr language file - en_US - mobilid
+CHARSET = UTF-8
+settingsbutton=Ayarlar
+locationbutton=Konum
+refreshbutton=Yenile
+Cancel=İptal etmek
+Done=Tamamlamak
+Validation=Doğrulama
+Welcome=Hoş geldin
+mustbepresent=mevcut olmalı
+item=Öğe
+notfound=Bulunamadı
+systemfieldset=Sistem
+connector=Bağlayıcı
+provider=Sağlayıcı
+requestid=Tanılama
+requestidplaceholder=Kendinizi tanıtın
+license=Lisans
+licenseplaceholder=Eklenti anahtarı
+bluetooth=Bluetooth
+orientation=Oryantasyon
+auto=Otomatik
+landscape=Yatay
+portrait=Dikey
+langsync=Dil Senkronizasyonu
+inventorypanel=Envanter
+pickingpanel=Toplama
+prospectpanel=Üçüncü Taraf
+orderpanel=Sipariş
+stockfieldset=Stok
+productreffield=Referans
+productbarcodefield=Barkod
+warehouseselect=Konum
+stockreelfield=Mevcut Stok
+countstep=Adım
+validateinventory=Doğrula ve
+removeitems=kaldır
+additems=ekle
+loadcurrentstockfrom=Mevcut stoğu yükle
+transfer=Transfer
+itemsfrom=öğelerden
+to=ile
+continue=Devam
+cancelinventory=Envanteri İptal Et
+validateinventory=Doğrula ve
+inventoryinfopanel=Envanter
+inventoryinfopage1=<div class="infopage" style="background-color: #dddddd;"><p class="lead">Ürün envanteri yapmak için modül.</p><p><i>Ürünü bulun:</i></p><ul class="list-group"><li class="list-group-item">Listeden ürün seçin, liste en fazla 100 ürün içerecektir. Listenin sonuna doğru kaydırıldığında daha fazla ürün yüklenecektir.</li><li class="list-group-item">Ürün barkodunu tarayın.</li><li class="list-group-item">Arama alanına referans, isim veya barkod girerek ürünü arayın.</li></ul><p><i>Ürün sayısı:</i></p><ul class="list-group"><li class="list-group-item">Ürün sayısını sayım alanına girin.</li><li class="list-group-item">Ürün sayısını + ve - butonları ile artırın veya azaltın.</li><li class="list-group-item">Ürün sayınızı başka bir yere taşıyın veya konum alanını seçerek konumunuzu değiştirin.</li><li class="list-group-item">Stok sayınızı doğrulamak için geri butonunu kullanın.</li></ul></div>
+pagesize=Sayfa boyutu
+countmode=Sayım Modu
+multiprices_index=Fiyat endeksi
+tosell=Ürün Sat
+tobuy=Ürün Satın Al
+pressbuttons=Düğmelere Basın
+shake=Çalkalama (deneysel)
+inventoryfieldset=Envanter
+helpbutton=Yardım
+cancelshipment=Gönderiyi İptal Et
+validateshipment=Gönderiyi Onayla
+pickingscanbutton=<div class="pickinglinephone"><span class="asked">Soruldu</span><span class="toship">Seçildi</span></div>
+pickingscanbuttonbar=<span class="asked">Soruldu</span><span class="toship">Seçildi</span>
+pickingscantabletbutton=<div class="pickinglinetablet"><span class="asked">Soruldu</span><span class="toship">Seçildi</span><span class="stock">Stok</span></div>
+pickingscantabletbuttonbar=<span class="asked">Soruldu</span><span class="toship">Seçildi</span><span class="stock">Stok</span>
+pickingsearchpanel=Siparişler
+pickinginfopanel=Toplama
+pickinginfopage1=<div class="infopage" style="background-color: #dddddd;"><p class="lead">Müşteri siparişlerini toplama modülü.</p><p> <i>Müşteri siparişini seçin:</i></p><ul class="list-group"><li class="list-group-item"> Listeden bir sipariş seçin.</li><li class="list-group-item"> Veya varsa sipariş numarasının barkodunu tarayın.</li><li class="list-group-item"> Liste öğesinde kilit simgesi görünüyorsa, bu siparişi başka bir kullanıcı alıyor demektir.</li></ul><p> <i>Sipariş Öğelerini Seçin:</i></p><ul class="list-group"><li class="list-group-item"> Sipariş öğesine dokunun ve topladığınız ürün miktarını seçin.</li><li class="list-group-item"> Bir ürünü seçmek için ürünün barkodunu taratın, ana ekranda konumunuzu seçmeniz gerekiyor.</li><li class="list-group-item"> Sipariş veya sipariş edilen ürün hakkında daha fazla bilgi görüntülemek için bilgi düğmelerine dokunun.</li><li class="list-group-item"> Toplanan siparişinizi doğrulamak için geri butonunu kullanın.</li></ul></div>
+PickingActionPickerSlotData[0]=Seç
+PickingActionPickerSlotData[1]=Eski haline getirmek
+PickingActionPickerSlotData[2]=Adım
+cancelprospect=Düzenlemeyi İptal Et
+validateprospect=Düzenlemeyi Onayla
+filterbutton=Filtre
+sortbutton=Sırala
+prospectinfobutton=Bilgi
+prospecteditbutton=Düzenle
+contactbutton=İletişim
+agendabutton=Olaylar
+prospectfieldset=Üçüncü şahıs
+companyfieldset=Şirket
+commercialstatusselect=Durum
+prospectlevelselect=Seviye
+companynamefield=İsim
+companycategoriefield=Kategori
+companyaddressfield=Adres
+companyzipfield=Posta kodu
+companytownfield=Şehir
+companymailfield=E-posta
+companyphonefield=Telefon
+companycallbutton=Arama
+prospectsearchpanel=Üçüncü Taraflar
+settingstoolbar=Ayarlar
+prospectpagesize=Sayfa boyutu
+contactpagesize=Sayfa boyutu
+contactfieldset=İlgili
+agendafieldset=Gündem
+usertodo_id=Satış Temsilcisi
+actionpagesize=Sayfa boyutu
+defaultdurationp=Def. dur.
+maxdurationp=Max dur.
+filterpanel=Filtreler
+categoriefilterlist=Kategori
+townfilterlist=Şehir
+statusfilterlist=Durum
+filterselectallbutton=Tümünü Seç/Seçimini Kaldır
+sortby=Göre sırala
+thenby=Daha sonra tarafından
+prospectinfopanel=Üçüncü şahıs
+prospectinfopage1=<div class="infopage" style="background-color: #dddddd;"><p class="lead">Üçüncü taraflarla iletişime geçme ve randevu alma modülü.</p><p> <i>Şirket ara:</i></p><ul class="list-group"><li class="list-group-item"> Listeden şirketi seçin, liste en fazla 100 ürün içerecektir. Listenin sonuna doğru kaydırıldığında daha fazla ürün yüklenecektir.</li><li class="list-group-item"> Arama alanına firma adı, kategori veya şehir girerek arama yapabilirsiniz.</li><li class="list-group-item"> Menüden 'Filtrele' seçeneğini seçerek şirket listesini kategori, şehir ve ilerleme durumuna göre filtreleyebilirsiniz.</li><li class="list-group-item"> Menüden &#39;Sırala&#39;yı seçerek listenin nasıl sıralanacağını seçin.</li></ul><p> <i>Şirketle iletişime geçin veya düzenleyin:</i></p><ul class="list-group"><li class="list-group-item"> Bir şirket seçtikten sonra, şirketi düzenlemeyi, kişileri veya Gündem görev listesini göstermeyi seçebilirsiniz.</li><li class="list-group-item"> Şirketinize veya kişiye sesli arama başlatmak veya mesaj göndermek için Arama düğmesini kullanın.</li><li class="list-group-item"> Değişikliklerinizi doğrulamak için geri düğmesini kullanın.</li></ul><p> <i>Gündem etkinliği ekle veya değiştir:</i></p><ul class="list-group"><li class="list-group-item"> Etkinlik listesinden bir etkinlik seçin veya menüden yeni bir etkinlik ekleyin.</li><li class="list-group-item"> Etkinlik formunda tarihi, saati, etkinlik süresini (dakika), etkinlik açıklamasını ve konumunu düzenleyin.</li><li class="list-group-item"> Görevi atayacağınız kişiyi ve kullanıcıyı değiştirin.</li><li class="list-group-item"> Seçilen kullanıcı için ajandada boş zaman dilimleri aramak için menüden 'Ay', 'Hafta'; veya 'Gün' takvim görünümlerini seçin. Seçilen boş zaman dilimi etkinlik formunda kullanılacaktır.</li><li class="list-group-item"> Değişikliklerinizi doğrulamak için geri düğmesini kullanın.</li></ul></div>
+contactby=İletişim
+hour=Saat
+minute=Dakika
+callphone=Çevirmeli Telefon
+callphonepro=İş Telefonunu Arayın
+callphoneperso=Kişisel Telefon Çevirin
+callphonemobile=Cep Telefonu Ara
+senssms=SMS gönder
+sendemail=E-posta gönder
+contactpanel=İlgili
+cancelcontact=Düzenlemeyi İptal Et
+validatecontact=Düzenlemeyi Onayla
+newbutton=Yeni
+contactsallbutton=Tüm
+contactinfobutton=Bilgi
+contacteditbutton=Düzenle
+contactagendabutton=Gündem
+contactfirstnamefield=İlk adı
+contactlastnamefield=Soy isim
+contactaddressfield=Adres
+contactzipfield=Posta kodu
+contacttownfield=Şehir
+contactmailfield=E-posta
+contactphonepersofield=Ev
+contactphoneprofield=İş
+contactphonemobilefield=Mobil
+contactskypefield=Skype
+contactcallbutton=Arama
+contactsearchpanel=İletişim
+sortcompanyname=Şirket
+actionpanel=Gündem
+cancelaction=Düzenlemeyi İptal Et
+validateaction=Düzenlemeyi Onayla
+actionsallbutton=Tüm
+actioninfobutton=Bilgi
+actioneditbutton=Düzenle
+actiondeletebutton=Silmek
+monthviewbutton=Ay
+weekviewbutton=Hafta
+dayviewbutton=Gün
+contactselect=İlgili
+usertodoselect=Satış Temsilcisi
+actionlabelfield=Etkinlik
+dateselect=Tarih
+timeselect=Zaman
+durationselect=Süre
+actionlocationfield=Konum
+actiondonefield=Tamamla
+actionsearchpanel=Olaylar
+orderpanel=Sipariş
+ordereditform=Toplam
+orderitemstab=Çizgiler
+orderscanbutton=<div class="orderlinephone"><span class="asked">Sipariş</span><span class="unit_price">UP</span><span class="reduction">İndirimi</span><span class="total">Toplam net</span><span class="ref"></span><span class="info"></span></div>
+orderscanbuttonbar=<span class="asked">Sipariş </span><span class="unit_price">UP</span><span class="reduction">İndirimi</span><span class="total">Toplam net</span>
+productaddbutton=Ürün Ekle
+totalfieldset=Toplam
+paymentfieldset=Ödeme
+totalnetfield=Vergi Hariç
+totaltaxfield=Vergi
+totalincfield=Vergi Dahil
+ordersearchpanel=Siparişler
+usecustomerpaymentcond=Müşteri Ödeme Koşulunu Kullan
+customerpagesize=Sayfa boyutu
+usecustomerpricelevel=Müşteri Fiyat Seviyesini Kullan
+useorderreduction=Sipariş İndirimini Kullanın
+productpagesize=Sayfa boyutu
+orderinfopanel=Sipariş
+orderinfopage1=<div class="infopage" style="background-color: #dddddd;"><p class="lead">Müşteri siparişleri oluşturma modülü.</p><p> <i>Yeni taslak siparişi seçin veya oluşturun:</i></p><ul class="list-group"><li class="list-group-item"> Sırayı değiştirmek için listeden bir taslak sıra seçin.</li><li class="list-group-item"> Yeni sipariş oluşturmak için 'Yeni Sipariş' butonuna dokunun.</li><li class="list-group-item"> Müşterileri arayın/filtreleyin/sıralayın ve menüden bir müşteri seçin veya yeni bir müşteri oluşturun.</li><li class="list-group-item"> Gerekirse menüden düzenle butonuna dokunarak müşteri niteliklerini değiştirin.</li><li class="list-group-item"> Müşteri için yeni bir taslak sipariş oluşturmak üzere sipariş butonuna dokunun.</li></ul><p> <i>Siparişe ürün veya hizmet ekleyin:</i></p><ul class="list-group"><li class="list-group-item"> Yeni ürün veya hizmet eklemek için sipariş sekmesindeki ürün ekle butonuna dokunun.</li><li class="list-group-item"> Yeni ürün eklemek veya ürün içeren mevcut sipariş satırını artırmak için ürün barkodunu tarayın.</li><li class="list-group-item"> Ürünleri arayın/filtreleyin/sıralayın ve ürün veya hizmeti seçin, istediğiniz miktarı ve indirimi ayarlayın, siparişe ekleyin.</li><li class="list-group-item"> Siparişler ve sipariş satırları uzak sunucuda anında oluşturulur. Sipariş toplamları sunucu tarafından hesaplanır.</li></ul></div>
+orderproductpanel=Ürün
+orderfieldset=Sipariş
+productfieldset=Ürün
+orderlineqtyfield=Sipariş Miktarı
+orderlinediscountfield=İndirim
+productpricefield=Satış Fiyatı
+warehousefield=Konum
+producttypefilterlist=Ürün Türü
+fieldref=Referans
+fieldlabel=Etiket
+fieldcategorie=Kategori
+customerpanel=Müşteri
+cancelcustomer=Düzenlemeyi İptal Et
+validatecustomer=Düzenlemeyi Onayla
+customerfieldset=Müşteri
+companyreductionfield=İndirim
+companypaymentcondfield=Durum
+companypaymenttypefield=Tip
+companyorderbutton=Emir
+customersearchpanel=Müşteriler
+customerinfobutton=Bilgi
+customereditbutton=Düzenle
+monthData[0]=Ocak
+monthData[1]=Şubat
+monthData[2]=Mart
+monthData[3]=Nisan
+monthData[4]=Mayıs
+monthData[5]=Haziran
+monthData[6]=Temmuz
+monthData[7]=Ağustos
+monthData[8]=Eylül
+monthData[9]=Ekim
+monthData[10]=Kasım
+monthData[11]=Aralık
+companycontactrequired=Gündem Etkinliği eklemek için bir Kişi gereklidir
+nonetwork=Ağ yok
+enablenetwork=Lütfen bir ağ bağlantısı etkinleştirin.
+servererror=Sunucu Hatası
+stockalert=Stok
+notenoughstocktomove=Hareket edecek kadar stok yok!
+error=Hata
+startautocount=Otomatik sayım başlatılamadı
+newuser=Yeni kullanıcı atandı
+notconnected=Sunucuya bağlı değilsiniz, ayarları kontrol edin.
+notenabled=Modül etkinleştirilmedi
+longpresstoenable=Yeniden etkinleştirmek için basılı tutun.
+scanningfailed=Tarama başarısız oldu:
+loacked=Kilitli
+finishaction=Lütfen mevcut işlemi tamamlayın
+stockqtyreached=Stok miktarına ulaşıldı.
+askedqtyreached=İstenilen miktara ulaşıldı.
+busyby=Meşgul:
+exit=Çıkış
+stopmobilid=Mobilid'i kullanmayı bırakmak istiyor musunuz?
+deleteconfirm=Sil
+orderlinedelete=Seçilen sipariş satırı
+warning=Uyarı
+removesetting=Bu ayarı kaldırmak istediğinizden emin misiniz?
+bluetooth=Bluetooth
+searchdevices=Yeni cihazlar mı aramak istiyorsunuz?
+changeprovider=Sağlayıcı ayarlarınızı değiştirmek üzeresiniz, sunucunuzu taşıdınız mı yoksa tanımlama değerini mi değiştirmek istiyorsunuz?
+cancelled=İptal edildi
+pleaseremovesetting=Lütfen bu ayarı kaldırın ve yeni bir ayar oluşturun.
+confirmation=Onay
+readytoacknowledge=Bağlanmaya hazır mısınız? Sunucuda kimliğinize bir kullanıcı atanması gerekiyor.
+notdeletedonserver=Sunucuda silinmedi
+missingfield=Gerekli alanlar eksik
+notconfirmed=Onaylanmadı
+yes=Evet
+no=No
+saveorderline=Kaydet
+addtoorder=Siparişe ekle
+shipmentfieldset=Sevkiyat
+autovalidateshipment=Gönderiyi otomatik olarak doğrula
+barcodetrimfieldset=Barkod düzeltme
+prefixfield=Önek
+suffixfield=Sonek
+nomultiwarehousepicking=Dolibarr'ın mevcut sürümü çoklu lokasyonlu gönderileri desteklemiyor. Ana ekrandan lokasyonunuzu seçin.
+batch=Parti
+batchsearchpanel=Ürün Partileri
+productbatchfield=Grup
+loadingmodule=Yükleme Modülü
+shutdown=Kapat
+countryselectfield=Ülke
+stateselectfield=Durum
+nomultiwarehousescan=Barkodları taramak için ana ekranda konumunuzu seçin.
+calendarpanel=Takvim
+calendarviewbutton=Takvim
+recorddisabled=Kayıt Devre Dışı
+hideautoevent=Otomatik olayları gizle
+countfromzero=Adım varsayılan miktardır
+addorderbutton=Yeni Düzen
+barcodetypeselect=Kod türü
+negativedispatch=Olumsuz Gönderim
+shownotepublic=Notu herkese açık olarak göster
+shownoteprivate=Notu özel olarak göster
+versioninfofieldset=Sürüm Bilgisi
+app_version=Uygulama
+connector_version=Bağlayıcı
+erp_version=Dolibarr
+sortorder=Sıralama sırası
+DESC=Azalan
+ASC=Yükselen
+comment=Yorum
+enterdispatchcomment=Bu Gönderiye bir yorum girebilirsiniz
+canceldispatch=Gönderimi İptal Et
+validatedispatch=Gönderimi Doğrula
+cancelfreedispatch=Gönderimi İptal Et
+validatefreedispatch=Gönderimi Doğrula
+freedispatchpanel=Ücretsiz Kargo
+dispatchpanel=Sevk etmek
+productlabelfield=Etiket
+hasbatchfield=Toplu mu
+sellbyfield=Satış tarihi
+eatbyfield=Yiyerek Geçin
+productbatchlist[0]=<tpl if='batch_id == 0'><div class="newproductbatch">
+productbatchlist[1]=        <span class="batch">Yeni Parti Ekle</span>
+productbatchlist[2]=        <tpl if='stock_reel &gt; 0'>
+productbatchlist[3]=            <span class="stock">{stock_reel} Ekle</span>
+productbatchlist[4]=        </tpl><tpl if='stock_reel &lt; 0'>
+productbatchlist[5]=             <span class="stock">{stock_reel} Sil</span>
+productbatchlist[6]=        </tpl></div><tpl else><div class="productbatchlist">
+productbatchlist[7]=        <span class="batch">{batch}</span>
+productbatchlist[8]=        <tpl if='sellby'><span class="sellby">tarihinden sat {sellby:date('d m Y')}</span></tpl>
+productbatchlist[9]=        <tpl if='eatby'><span class="eatby">tarihinden yiyin {eatby:date('d m Y')}</span></tpl>
+productbatchlist[10]=        <span class="stock">{stock_reel}</span>
+productbatchlist[11]=        <tpl if='batch_info'><span class="batch_info">Bilgi: {batch_info}</span></tpl>
+productbatchlist[12]=    </div></tpl>
+freedispatchpanel=Ücretsiz Kargo
+productbatchinfofield=Parti Bilgisi
+countfield=Miktar
+dispatchinfopage1=<div class="infopage" style="background-color: #dddddd;"><p class="lead">Tedarikçi siparişlerini göndermek için kullanılan modül.</p><p> <i>Tedarikçi siparişini seçin:</i></p><ul class="list-group"><li class="list-group-item"> Listeden bir sipariş seçin.</li><li class="list-group-item"> Mevcutsa sipariş veya tedarikçi referans barkodunu tarayın.</li><li class="list-group-item"> Ürün içeren siparişleri filtrelemek için ürün barkodunu tarayın.</li><li class="list-group-item"> Liste öğesinde bir kilit simgesi görünüyorsa, bu siparişi başka bir kullanıcı gönderiyor demektir.</li></ul><p> <i>Gönderim Siparişi öğeleri:</i></p><ul class="list-group"><li class="list-group-item"> Gönderilecek sipariş öğesine dokunun veya tarayın.</li><li class="list-group-item"> Gerekiyorsa alınan sipariş miktarını değiştirin.</li><li class="list-group-item"> Bir ürünü göndermek için ürünün barkodunu tarayın, gönderim ayarlarında 'Sıfırdan say' seçeneğini belirlemeniz gerekir.</li><li class="list-group-item"> 'Toplu' olarak etkinleştirilmiş bir ürün gönderiyorsanız, göndermeden önce bir toplu sipariş eklemeniz gerekir.</li><li class="list-group-item"> Gönderilen ürününüzü doğrulamak için geri düğmesini kullanın. 'Toplu' özelliği etkinleştirilmiş bir ürünü gönderirken, ek toplu işlem parametrelerini girmek için yeni oluşturulan toplu işleme dokunabilirsiniz.</li><li class="list-group-item"> Sipariş veya sipariş edilen ürün hakkında daha fazla bilgi görüntülemek için bilgi düğmelerine dokunun.</li><li class="list-group-item"> Gönderilen siparişinizi doğrulamak için geri düğmesini kullanın. Gönderim ayarlarında bu özellik etkinleştirildiğinde, gönderilen siparişinize yorum girebilirsiniz. Tedarikçi siparişi otomatik olarak tamamen veya kısmen alındı olarak ayarlanacaktır. Tamamen gönderilen siparişler listeden kaldırılacaktır.</li></ul><p> <i>Ücretsiz Gönderim modu:</i></p><ul class="list-group"><li class="list-group-item"> Mevcut ürün stokunuza yeni Ürünler veya Partiler ekleyebilirsiniz.<li class="list-group-item"> Menüden 'Yeni ürün' seçeneğini seçerek ürün ekleyin.<li class="list-group-item"> Mevcut ürünü, listeden bir ürünü arayıp dokunarak değiştirin.<li class="list-group-item"> Ürün 'Toplu' özelliği etkinleştirildiğinde, yeni bir toplu stok ekleyerek toplu olmayan stoğu toplu stoğa dönüştürebilirsiniz. Ayrıca mevcut 'Toplu' parametrelerini de değiştirebilirsiniz.</div>
+notepubliccontainer=<div class="note"><span class="notetitle">Genel Duyuru: </span></div>
+noteprivatecontainer=<div class="note"><span class="notetitle">Not Özel: </span></div>
+dispatchlinescanbutton=<div class="productlist"><span class="asked">Sipariş</span><span class="shipped">Gönderilen</span><span class="stock">Stok</span></div>
+dispatchlinescanbuttonbar=<span class="asked">Sipariş</span><span class="shipped">Gönderilen</span><span class="stock">Stok</span>
+productsearchpanel=Ürünler
+dispatchsearchpanel=Satınalma Siparişleri
+freedispatchcheckbox=Ücretsiz Kargo
+userfilter=Kullanıcı Filtreleme
+enabledispatchcomment=Gönderim Yorumunu Etkinleştir
+complete=Veri Tamamlandı
+notcomplete=Veriler tamamlanmadı
+exceeddispatch=Gönderim sayısı sipariş miktarını aşıyor.
+batchscanbutton=<div class="productbatchlist"><span class="stock">Stok</span></div>
+batchscanbuttonbar=<span class="stock">Stok</span>
+selectdevice=Cihazı seçin ...
+pusupplierfield=Birim Fiyat
+duplicateidentification=Çift Kimlik
+includephotosfield=Fotoğrafları Göster
+photoalloweditfield=Ekleme sırasında Düzenlemeye İzin Ver
+photoqualityfield=Kalite
+camera=Kamera
+addproductphotobutton=Fotoğraf Ekle
+setuserfiltertoshowrecieved=Tamamen alınan siparişleri göstermek için bir kullanıcı filtresi tanımlamanız gerekir
+showrecievedbyuser=Kullanıcı tarafından alınan tüm bilgileri göster
+draftorder=Taslak sipariş
+validateorder=Siparişi doğrula
+useinventorycode=Envanter kodunu kullan
+dispatchcommentfield=Yorum
+mioscanfield=Mio Tarama Düğmesi
+locationsearchpanel=Konumlar
+locationsearchfield=Konum
+cancel=İptal etmek
+autosavefield=Otomatik Kaydet
+gtinnotmatchbarcode=Gtin barkodu ürün barkoduyla uyuşmuyor.
+notenoughstocktoremove=Kaldırılacak yeterli stok yok! İptal edilsin mi?
+deleteselection=Seçiminizi silmek istediğinizden emin misiniz?
+removepanel=Stok Çıkışı
+designationsearchpanel=Tanımlar
+removeinfopage1=<div class="infopage"><p class="lead">Stoktan ürün çıkarma modülü.</p><p> <i>Ürünü bulun:</i></p><ul class="list-group"><li class="list-group-item"> Listeden ürün seçin, liste en fazla 100 ürün içerecektir. Listenin sonuna doğru kaydırıldığında daha fazla ürün yüklenecektir.</li><li class="list-group-item"> Ürün barkodunu tarayın.</li><li class="list-group-item"> Arama alanına referans, isim veya barkod girerek ürünü arayın.</li></ul><p> <i>Ürün sayısı:</i></p><ul class="list-group"><li class="list-group-item"> Kaldırılacak ürün sayısını sayım alanına girin.</li><li class="list-group-item"> + tuşu ile kaldırılacak sayıyı artırın.</li><li class="list-group-item"> Stok kaldırma için bir unvan ekleyin; kullanılmış unvanların listesi otomatik olarak oluşturulacak ve kolayca yeniden kullanabileceksiniz. Yeni bir unvan eklemek için, arama alanına yeni unvanı yazın. Geri düğmesine dokunduğunuzda, girilen metin formda mevcut olacak ve listede saklanacaktır. Unvanı formda yine de düzenleyebilirsiniz; düzenlenen metin, listede yeni bir unvan metni olarak saklanacaktır.</li><li class="list-group-item"> Stok yerini değiştirdiğinizde, ürünü değiştirilen stok yerinden kaldırmış olursunuz.</li><li class="list-group-item"> Stok kaldırma işleminizi doğrulamak için geri düğmesini kullanın.</li></ul></div> ',</body>
+searchfieldset=Ara
+formfieldset=Biçim
+hidedispatchedline=Gönderilen satırları gizle
+locationnotselected=Konum seçilmedi, İptal?
+allowupdatepricefield=Tedarikçi fiyatını güncelle
+allowupdateproductpricefield=Ürün fiyatını güncelle
+companyvatusedfield=KDV kullanın
+noqtyandbatchchange=Aynı anda MİK. ve parti değişikliğine izin verilmiyor, MİK. 0 olarak ayarlandı
+alloweditbatchfield=Çok sayıda düzenlemeye izin ver
+updateproductpriceonlyonadd=Ürün fiyatı güncellemesi yalnızca siparişe ürün eklenirken mümkündür
+erptimezonefield=Dolibarr Saat Dilimi
+refsupplierfield=Ref Tedarikçisi
+qtysupplierfield=Miktar satın al
+pricesupplierfield=Satın Alma Fiyatı
+companyvatfield=KDV numarası
+creating=Oluşturuluyor...
+methodselectfield=Yöntem
+setglobaldiscountbutton=İndirim Uygula
+setdiscounts=Tüm sipariş satırlarındaki indirimleri güncellemek istediğinizden emin misiniz?
+hidepickedline=Seçilen satırları gizle
+pagesizevalidation=Sayfa boyutu çok büyük.
+camerascanfield=Kamera taramasını devre dışı bırak
+clearsearch=Arama alanlarını temizle
+orderproductlist[0]=<tpl if="has_photo"><div class="productlistphoto"><img src='{photo}' class="photo_mini" /><tpl else><div class="productlist"></tpl>
+orderproductlist[1]=<span class="ref">{ref}</span>
+orderproductlist[2]=<span class="label">{label:ellipsis(80)}</span><tpl if="mobilid_field"><span class="mobilid_field">{mobilid_field:ellipsis(80)}</span></tpl>
+orderproductlist[3]=<span class="price">net {[this.formatPrice(values.price)]}</span>
+orderproductlist[4]=<span class="price_ttc">dahil {[this.formatPrice(values.price_ttc)]}</span>
+orderproductlist[5]=<tpl if="warehouse_id &gt; 0"><span class="stock">{[this.formatStock(values.stock)]} pcs</span><tpl else><span class="stock">{[this.formatStock(values.total_stock)]} pcs</span></tpl></div>
+orderproductlist[6]={formatPrice: function(value) {return value ? value.toFixed(2) : 0;}}
+orderproductlist[7]={formatStock: function(value) {return (value - value.toFixed(0) != 0) ? value.toFixed(2) : value;}}
+orderlist[0]=<div class="orderlist"><span class="ref">{ref}</span><span class="customer">{customer:ellipsis(30)}</span><tpl if="status == 'START'"><span class="status fa fa-lock fa-lg"></span></tpl>
+orderlist[1]=    <span class="total">{[this.formatPrice(values.total_inc)]} inc.</span>
+orderlist[2]=    <span class="username">{user_name} tarafından satıldı</span>
+orderlist[3]=    <span class="order_date">{[this.offset(values.order_date)]}</span>
+orderlist[4]=</div>
+orderlist[5]={formatPrice: function(value) {return value ? value.toFixed(2) : 0;}}
+orderlist[6]={offset: function (value) {var setting = Ext.getStore('settings').findRecord('active', 'active'),offsetedDate;if (value instanceof Date) {offsetedDate = Ext.Date.add(value, Ext.Date.HOUR, setting.get('timezone_diff'));return Ext.Date.format(offsetedDate, 'd M Y');} else {return value;}}}
+pickinglist[0] = <div class="orderlist"><span class="ref">{ref}</span>
+pickinglist[1] = <span class="customer">{customer:ellipsis(30)}</span>
+pickinglist[2] = <tpl if="ref_customer != ''"><tpl if="ref_customer != null"><span class="ref_customer">({ref_customer:ellipsis(30)})</span></tpl></tpl>
+pickinglist[3] = <tpl if="deliver_date != ''"><tpl if="deliver_date != null"><span class="deliver_date">{[this.planned(values.deliver_date)]}</span></tpl></tpl>
+pickinglist[4] = <tpl if="status == 'START'"><span class="status fa fa-lock fa-lg"></span></tpl>
+pickinglist[5] = <span class="order_date">Ordered on {[this.offset(values.order_date)]}</span>
+pickinglist[6] = <span class="username">Yazar {user_name}</span>
+pickinglist[7] = <tpl if="shipping_method_id &gt; 0"><span class="method">Yöntem {[this.method(values.shipping_method_id)]}</span></tpl><div>
+pickinglist[8] = {offset: function (value) {var setting = Ext.getStore('settings').findRecord('active', 'active'),offsetedDate;if (value instanceof Date) {offsetedDate = Ext.Date.add(value, Ext.Date.HOUR, setting.get('timezone_diff'));return Ext.Date.format(offsetedDate, 'd M Y');} else {return value;}}}
+pickinglist[9] = {planned: function (value) {var setting = Ext.getStore('settings').findRecord('active', 'active'),dateString, offsetedDate, now = Date.now();if (value instanceof Date) {offsetedDate = Ext.Date.add(value, Ext.Date.HOUR, setting.get('timezone_diff'));dateString = Ext.Date.format(offsetedDate, 'd M Y');if (offsetedDate < now) {return '! ' + dateString;} else {return dateString;}} else {return value;}}}
+pickinglist[10] = {method: function (value) {var shippingMethod = Ext.getStore('ShipmentModes').getById(value);if (shippingMethod) {return shippingMethod.get('label');} else {return '';}}}
+labelfield=Etiket
+descriptionfield=Tanım
+createprivateindividual=Gerçek kişi oluştur
+discountinctax=İnd. vergi dahil
+discountexltax=İnd. Vergi hariç
+showservices=Hizmet/serbest satırları göster
+orderproductpanelservice=Hizmet
+refcustomer=Müşteri Ref.
+deliverdate=Planlanmış
+hidezerostocklinesfield=0 stok satırını gizle
+customercodefield=Müşteri kodu
+subpricefield=Birim fiyat
+sessionlost=Muhtemelen oturum kaybedildi, geri tuşuna tekrar basın.
+searchtriggerfield=Arama tetikleyicisi için karakterler
+searchtriggerfieldplaceholder={searchtrigger} veya daha fazla karakter yazın
+cleardiscounts=Tüm sipariş satırlarındaki indirimleri temizlemek istediğinizden emin misiniz?
+sessionrecover=Muhtemelen oturumunuz kaybolmuştur, ana ekrana gidin ve çalışmanızı kurtarmak için modülü yeniden başlatın.
+stocklabeltransfer=Mobilid transfer - {requestid}
+stocklabelcorrect=Mobilid correct - {requestid}
+stocklabelremove=Mobilid remove - {requestid}
+fromcamera=Kameradan
+fromphotolibrary=Fotoğraf Kütüphanesinden
+purchasepanel=Satın alma
+purchasesearchpanel=Tedarikçi Siparişleri
+byproductbutton=Ürüne Göre Sırala
+suppliernewbutton=Yeni Tedarikçi
+usesupplierpaymentcond=Tedarikçi Ödeme Koşulunu Kullan
+supplierfieldset=Tedarikçi
+purchaseinfopage1=<div class="infopage"><p class="lead">Tedarikçi siparişleri oluşturma modülü.</p><p> <i>Yeni taslak tedarikçi siparişi seçin veya oluşturun:</i></p><ul class="list-group"><li class="list-group-item"> Sırayı değiştirmek için listeden bir taslak sıra seçin.</li><li class="list-group-item"> Yeni sipariş oluşturmak için 'Yeni Tedarikçi Siparişi' butonuna dokunun.</li><li class="list-group-item"> Tedarikçileri arayın/filtreleyin/sıralayın ve menüden bir tedarikçi seçin veya yeni bir tedarikçi oluşturun (sadece 'Tedarikçi ekle modu'nda mevcuttur).</li><li class="list-group-item"> Gerekirse menüden düzenle butonuna dokunarak tedarikçi niteliklerini değiştirin.</li><li class="list-group-item"> Tedarikçi için yeni bir taslak sipariş oluşturmak için sipariş butonuna dokunun.</li></ul><p> <i>Siparişe ürün veya hizmet ekleyin:</i></p><ul class="list-group"><li class="list-group-item"> Yeni ürün veya hizmet eklemek için sipariş sekmesindeki artı butonuna dokunun.</li><li class="list-group-item"> Yeni ürün eklemek veya ürün içeren mevcut sipariş satırını artırmak için ürün barkodunu tarayın.</li><li class="list-group-item"> Ürünleri arayın/filtreleyin/sıralayın ve ürün veya hizmeti seçin ('Tedarikçi ekle modunda' tüm ürünler gösterilir ve en ucuz satın alma fiyatı yüklenir), gerekli miktarı ve indirimi ayarlayın, siparişe ekleyin.</li><li class="list-group-item"> Siparişler ve sipariş satırları uzak sunucuda anında oluşturulur. Sipariş toplamları sunucu tarafından hesaplanır.</li></ul><p> <i>Yeni veya mevcut tedarikçi siparişlerine eklenecek ürünleri seçin:</i></p><ul class="list-group"><li class="list-group-item"> Sipariş listesinde, \\'Ürüne Göre Sırala\\' düğmesine dokunun (Tedarikçi ekle modunda kullanılamaz).</li><li class="list-group-item"> Satın almak istediğiniz ürünü tarayın/arayın/filtreleyin/sıralayın.</li><li class="list-group-item"> Gerekirse menüden düzenle butonuna dokunarak tedarikçi niteliklerini değiştirin.</li><li class="list-group-item"> İstenilen miktarı ve indirimi ayarlayın, siparişe ekleyin.</li><li class="list-group-item"> Tedarikçiye ait daha fazla sipariş varsa, tedarikçiden mevcut taslak siparişi seçin.</li></ul></div>
+supplierpanel=Tedarikçi
+suppliersearchpanel=Tedarikçiler
+draftpurchase=Taslak sipariş
+validatepurchase=Siparişi doğrula
+desiredstockqtyreached=İstenilen stok miktarına ulaşıldı.
+cancelsupplier=Tedarikçi Düzenlemesini İptal Et
+validatesupplier=Tedarikçi Düzenlemesini Onayla
+setdeliveredfield=Otomatik olarak teslim edildi
+createzeroshiplinesfield=Sevkiyatı sıfır olan satırları oluştur
+purchaseproductlist[0]=<tpl if="has_photo"><div class="productlistphoto"><img src='{photo}' class="photo_mini" /><tpl else><div class="productlist"></tpl>
+purchaseproductlist[1]=<span class="ref">{ref}</span>
+purchaseproductlist[2]=<span class="label">{label:ellipsis(80)}</span><tpl if="mobilid_field"><span class="mobilid_field">{mobilid_field:ellipsis(80)}</span></tpl>
+purchaseproductlist[3]=<tpl if="ref_supplier">
+purchaseproductlist[4]=  <span class="refsup">({ref_supplier})</span>
+purchaseproductlist[5]=  <span class="price_ttc">Birim fiyat {[this.formatPrice(values.price)]} Miktar için {[Number(values.qty_supplier)]}</span></tpl>
+purchaseproductlist[6]=<span class="stock">Stok {[this.formatStock(values.stock)]}</span>
+purchaseproductlist[7]=<span class="ordered">Sipariş Edildi {[Number(values.qty_ordered)]}</span>
+purchaseproductlist[8]=<tpl if="reduction_percent_supplier &gt; 0"><span class="reduction">İndirim {[Number(values.reduction_percent_supplier)]} %</span></tpl>
+purchaseproductlist[9]=<tpl if="this.stockAlert(seuil_stock_alerte, total_stock)"><span class="status fa fa-warning fa-lg"></span></tpl></div>
+purchaseproductlist[10]={formatPrice: function(value) {return value ? value.toFixed(2) : 0;}}
+purchaseproductlist[11]={formatStock: function(value) {return (value - value.toFixed(0) != 0) ? value.toFixed(2) : value;}}
+purchaseproductlist[12]={stockAlert: function(seuil_stock_alerte, total_stock) {return (seuil_stock_alerte !== null && seuil_stock_alerte >= total_stock) ? 1 : 0;}}
+adding=Ekleniyor...
+purchaseorderlist[0]=<div class="orderlist"><span class="ref">{ref}</span><tpl if="ref_supplier"><span class="customer_top">{supplier:ellipsis(60)}</span><span class="ref_supplier">({ref_supplier:ellipsis(30)})</span><tpl else><span class="customer">{supplier:ellipsis(60)}</span></tpl><tpl if="status == 'START'"><span class="status fa fa-lock fa-lg"></span></tpl>
+purchaseorderlist[1]=    <span class="total">{[this.formatPrice(values.total_inc)]} inc.</span>
+purchaseorderlist[2]=    <span class="username">Yazar {user_name}</span>
+purchaseorderlist[3]=</div>
+purchaseorderlist[4]={formatPrice: function(value) {return value ? value.toFixed(2) : 0;}}
+addsupplierfield=Yeni tedarikçi modu ekle
+vatsupplierfield=KDV %
+warehouseselecttostore=Lütfen stoklarınızı nereye taşımak istediğinizi seçin.
+movetosearchfield=Buraya taşı
+signaturetitle=İmza
+extrafields=Tamamlayıcı nitelikler
+ConnectionFailed=Bağlantı başarısız oldu
+NoConnection=Bağlantı yok
+SyncFailes=Senkronizasyon Başarısız Oldu
+pmpfield=Ortalama fiyat/adet
+orderdatefield=Sipariş tarihi
+deliverdatefield=Beklenen teslimat tarihi
+createdatefield=Oluşturma Tarihi
+validdatefield=Geçerlilik Tarihi
+approvedatefield=Onay Tarihi
+notefield=Not
+noteprivatefield=Özel not
+notepublicfield=Kamuoyuna duyurulur
+usersellfield=Tarafından satıldı
+startfield=Başlangıç
+endfield=Son
+userdonefield=Tarafından yapıldı
+birthdayfield=Doğum günü
+jobfield=İş
+faxfield=Faks
+jabberfield=Jabber Kimliği
+urlfield=URL
+idprof1field=Kimlik Prof 1
+idprof2field=Kimlik Prof 2
+idprof3field=Kimlik Prof 3
+idprof4field=Kimlik Prof 4
+legalformfield=Hukuki form
+productdescfield=Ürün Açıklaması
+linedescfield=Satır açıklaması
+linelabelfield=Satır etiketi
+stockqtyfield=Stok miktarı
+shippedqtyfield=Gönderilen miktar
+pickedqtyfield=Toplanan miktar
+taxfield=KDV %
+localtax1field=Yerel vergi 1
+localtax2field=Yerel vergi 2
+totallocaltax1field=Toplam Yerel Vergi 1
+totallocaltax2field=Toplam Yerel Vergi 2
+rangfield=Çaldı
+scanmodetimed=Zamanlı tarama kapalı
+scanmoderead=Okuduktan sonra tarayın
+scanmodecontinuous=Sürekli tarama modu
+companylocaltax1usedfield=Yerel KDV 1 kullanıldı
+companylocaltax2usedfield=Yerel KDV 2 kullanıldı
+autoproductscan=Taranan ürünü Siparişe otomatik olarak ekle
+file=Dosya seç
+addfilebutton=Dosya Ekle
+shipmentfilefield=Gönderiye dosya ekle
+filerequired=Dosya eklenmesi gerekiyor
+upload=Gönder
+batchNotUnique=Birden fazla lot kodu bulunduğunda, önce ürün barkodunu tarayın veya birden fazla lokasyondan toplama yapmak istiyorsanız manuel seçimi yapın.
+providerkeymismatch=Sağlayıcı gizli anahtar uyumsuzluğu
+notupdaterequestid=Kimlik değerini güncelleyemezsiniz, lütfen bu ayarı kaldırın ve yeni bir tane oluşturun.
+showsubproductsfield=Alt ürünleri göster
+multidispatchfield=Birden fazla kullanıcı tarafından gönderim
+exceeddispatchchoise=Gönderim sayısı sipariş miktarını aştı, emin misiniz?
+productweightfield=Ağırlık
+productlengthfield=Uzunluk
+productwidthfield=Genişlik
+productheightfield=Yükseklik
+productsurfacefield=Yüzey
+productvolumefield=Hacim
+inventorypluspanel=Envanter Plus
+updateconfirm = Güncellemeyi Onayla
+updateoptions = Değiştirilmiş tamamlayıcı nitelikleri güncellemek istediğinizden emin misiniz?
+pagesizefield = Sayfa Boyutu
+transferfieldset = Hedef moduna geç
+transfermodecheckboxfield = Hareketi etkinleştir
+copyoptionalsfield = Tamamlayıcı alanları kopyala
+virtualstock = Sanal Hisse Senedi
+suppliercodefield = Tedarikçi kodu
+batchShipmentNotUnique = Birden fazla lot kodu bulunursa, önce ürün barkodunu tarayın veya çoklu lot gönderimi için manuel seçimi yapın.
+shipmentpaneltitle = Sevkiyat
+shipmentscanbuttonbar = <div class="pickinglinephone"><span class="asked">Soruldu</span><span class="toship">Seçildi</span></div>
+shipmentinfopanel = Sevkiyat
+shipmentinfopage1 = sevkiyat talimatları
+ShipmentActionPickerSlotData[0] = Gemi
+ShipmentActionPickerSlotData[1] = Eski haline getirmek
+ShipmentActionPickerSlotData[2] = Adım
+shipmentsearchpanel = Gönderiler
+swipetoship = Göndermek İçin Kaydırın
+cancelshipping = Gönderimi iptal et
+validateshipping = Gönderiyi doğrula
+shipmentmode = Gemi modu
+showsourcewarehousefield = Kaynak deposunu göster
+pickedqtyreached = Seçilen miktara ulaşıldı.
+ordercustomerreffield = Müşteri Referansı
+ordersupplierreffield = Tedarikçi Referansı
+UnableToAddProduct = Ürün siparişe eklenemiyor.
+costpricefield = Maliyet fiyatı
+sellpricelowerthencostprice = Maliyet fiyatından daha düşük bir fiyata satmaya emin misiniz?
+connectornotcompatible = Dolibarr uyumluluğu için bağlayıcı kontrol edilmedi.
+pleasebuy = Lütfen Mobilid konnektör satın alın.
+useshippablestatusfield = Gönderilebilir durumunu kullan
+statusfield = Durum
+shippableqtyfield = Sevk edilebilir miktar
+choosedestinationfield = Varsayılan hedefi seçin
+autoserialdispatchfield = Otomatik gönderim seri numarası
+serialqtyreached = Seri numarası için miktara ulaşıldı.
+warehouse_sumstockfield = Küresel depo listesindeki stoğu göster
+hidezerostockforwarehousefield = Depo için 0 stoğu gizle
+authorfield = Yazar
+identifyrequired = Kilidi açmak için QR kodunu tarayın.
+licenserequiredforidentify = Lisans alanının Tanımlanabilmesi için bir değere sahip olması gerekir.
+lockbutton = Kilit
+createnegativeshiplinesfield = Negatif çizgilerin oluşturulmasına izin ver
+showvalidatedorderfield = Doğrulanmış siparişleri göster
+defaultcustomerfieldset = Varsayılan müşteri
+usedefaultcustomercheckboxfield = Varsayılan müşteriyi kullan
+defaultcustomersearchfield = Varsayılan müşteri adı
+linesortorder = Sipariş satırı sıralaması
+addorderdefaultcustomerbutton = Yeni varsayılan müşteri siparişi
+producttoproducereffield = Üretilecek ürün
+producedatestartfield = Başlangıç tarihi planlandı
+producedateendfield = Son tarih planlandı
+qtytoproducereffield = Üretilecek miktar
+consumedqtyfield = Tüketilen miktar
+producedqtyfield = Üretilen miktar
+manufactureorderpaneltitle = Üretim Sipariş Toplama
+manufactureorderscanbuttonbar = <div class="pickinglinetablet"><span class="asked">Soruldu</span><span class="toship">Seçildi</span><span class="stock">Stok</span></div>
+manufactureorderinfopanel = Üretim Sipariş Yardımı
+manufactureorderinfopage1 = <div class="infopage"><p class="lead">Üretim siparişlerini toplama modülü.</p><p> <i>Üretim siparişini seçin:</i></p><ul class="list-group"><li class="list-group-item"> Listeden bir sipariş seçin.</li><li class="list-group-item"> Veya varsa sipariş numarasının barkodunu tarayın.</li><li class="list-group-item"> Liste öğesinde kilit simgesi görünüyorsa, bu siparişi başka bir kullanıcı alıyor demektir.</li></ul><p> <i>Sipariş Öğelerini Seçin:</i></p><ul class="list-group"><li class="list-group-item"> Sipariş öğesine dokunun ve topladığınız ürün miktarını seçin.</li><li class="list-group-item"> Bir ürünü seçmek için ürünün barkodunu tarayın, ana ekranda depo konumunuzu seçmeniz gerekiyor.</li><li class="list-group-item"> Sipariş veya sipariş edilen ürün hakkında daha fazla bilgi görüntülemek için bilgi düğmelerine dokunun.</li><li class="list-group-item"> Topladığınız ürünleri doğrulamak için geri düğmesini kullanın. Sadece tüketilen ürünler toplandığını unutmayın, ürününüzü Dolibarr'da üretmeniz gerekmektedir.</li></ul></div>
+manufactureordersearchpanel = Üretim siparişleri
+manufactureorderfieldset = Üretim Sipariş Ayarları
+ManufactureOrderActionPickerSlotData[0]=Seç
+ManufactureOrderActionPickerSlotData[1]=Eski haline getir
+ManufactureOrderActionPickerSlotData[2]=Adım
+fieldrefbom = Malz. List. Referansı
+NotaValidUrl = Geçerli bir URL değil. Alan adı noktalardan oluşmalı ve yalnızca yol kullanılmalıdır, php veya htlm dosyası eklenmemelidir.
+inventoryplusinfopanel=Envanter Plus
+inventoryplusinfopage1 = <div class="infopage"><p class="lead">Ürün envanterini bazı ek özelliklerle yapmaya yarayan modül.</p><p> <i>Ek özellikler:</i></p><ul class="list-group"><li class="list-group-item"> Stok hareketi için isim ekleyin; kullanılmış isimlerin listesi otomatik olarak oluşturulacak ve kolayca yeniden kullanabileceksiniz. Yeni bir isim eklemek için, arama alanına yeni ismi yazın. Geri düğmesine dokunduğunuzda, girilen metin formda mevcut olacak ve listede saklanacaktır. Yine de ismi formda düzenleyebilirsiniz; düzenlenen metin, listede yeni bir isim metni olarak saklanacaktır.</li><li class="list-group-item"> Birden fazla ürün fotoğrafı ekleyin</li><li class="list-group-item"> Ağırlık ve boyut bilgilerini girin</li><li class="list-group-item"> GS1-128 barkoduna göre tarama araması</li></ul></div>
+orderaddlinebutton = Yeni satır
+manufactureorderlineqtyfield = Gerekli Mik.
+addlinemodefield = Satır ekleme modu
+manufactureorderautoproductscanfield = Autoscan yeni ürünü
+editlinemodefield = Satırları düzenle modu
+calculatedweightfield = Hesaplanan ağırlık
+calculatedvolumefield = Hesaplanan hacim
+useproduciblestatusfield = Üretilebilir durumu kullan
+ConnectionLost = Bağlantı kesildi
+broadcastname = Barkod okuyucu Yayın alıcısı adı
+broadcastdatakey = Barkod okuyucu Yayın alıcısı veri anahtarı
+hideshipmentshippedlinefield = Gönderilen hatları gizle
+autovalidatepackagefield = Paketi otomatik olarak doğrula
+scanmultiplefield = Listede barkod tarama arama modu
+alwaysloadstockwarehousefield = Depo değişikliğinde her zaman stok yükleyin
+usercodenotvalid = Geçersiz PIN kodu
+pincoderequired = PIN kodu gerekli
+pincode = Lütfen pin kodunu girin
+closeshipmentfield = Tümü teslim edildiğinde sevkiyatı kapatın
+draftreception = Taslak Kabulü
+validatereception = Alımı Doğrula
+printbutton = Etiketler
+labelprinted = Etiket basıldı
+expectedshipmentdatefield = Beklenen sevkiyat tarihi
+desiredstock = İstenilen Stok
+stockalertlimit = Uyarı sınırı
+usevirtualstockfield = Limit uyarısı için sanal hisse senedi kullanın
+inventorydatefield = Tarih envanteri
+warehouseundefind = Depo tanımlanmadı
+useinventorymodefield = Envanter Modunu Kullan
+inventoryplusinventorysearchpanel = Envanterler
+inventoryplusinventoryscanbuttonbar = <span class="asked">Beklenen</span><span class="shipped">Gerçek</span>
+inventoryplusinventoryallbutton = Tümünü Düzenle
+inventorystatusfield = Envanter durumu
+modifydatefield = Değiştirme Tarihi
+inventorydatefield = Tarih envanteri
+showclosedinventoriesfield = Kapalı Stokları Göster
+nbrcountfield = Sayılar
+showdraftinventories = Taslak Envanterleri Göster
+warehouseselecttoadd = Lütfen ana menüden stoklarınızı nereye yerleştirmek istediğinizi seçin veya ürününüz için varsayılan bir konum belirleyin.
+validateorderandnew = Doğrula ve yeni sipariş ver
+closeinventory = Hareketler oluşturun ve kapatın
+validateinventory = Doğrula ve
+reopeninventory = Envanteri Yeniden Aç
+enterbatchtoaddtoinventory = Envantere eklemek için parti numarasını girin.
+addsignaturebutton = Imzalamak
+partialreceived = Kısmi alım
+fullreceived = Tamamı teslim alındı.
+keepactualstatus = Gerçek durumu koru
