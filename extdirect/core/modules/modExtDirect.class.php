@@ -43,7 +43,7 @@ class modExtDirect extends DolibarrModules
 
 		// Id for module (must be unique).
 		// Use here a free id (See in Home -> System information -> Dolibarr for list of used modules id).
-		$this->numero = 202002;
+		$this->numero = 202003;
 		// Key text used to identify module (for permissions, menus, etc...)
 		$this->rights_class = 'extdirect';
 
@@ -57,13 +57,14 @@ class modExtDirect extends DolibarrModules
 		// not found (where XXX is value of numeric property 'numero' of module)
 		$this->description = "Connect to external applications which use Sencha Ext.direct";
 		// Possible values for version are: 'development', 'experimental', 'dolibarr' or version
-		$this->version = '1.0.85';
-		// Key used in llx_const table to save module status enabled/disabled
+		$this->version = '1.112.89';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.
 		// If file is in theme/yourtheme/img directory under name object_pictovalue.png, use this->picto='pictovalue'
 		// If file is in module/img directory under name object_pictovalue.png, use this->picto='pictovalue@module'
-		$this->picto='technic';
+		$this->picto='mobilid@extdirect';
+		$this->editor_name = 'Z-Application';
+		$this->editor_url = 'https://www.z-application.com';
 
 		// Defined all module parts (triggers, login, substitutions, menus, css, etc...)
 		// for default path (eg: /mymodule/core/xxxxx) (0=disable, 1=enable)
@@ -117,61 +118,61 @@ class modExtDirect extends DolibarrModules
 		$this->rights = array();        // Permission array used by this module
 		$r=0;
 
-		$this->rights[$r][0] = $this->numero . sprintf('%02d', (0 * 10) + $r + 1);
+		$this->rights[$r][0] = ($this->numero - 1) . sprintf('%02d', (0 * 10) + $r + 1);
 		$this->rights[$r][1] = 'AllowDispatch';
 		$this->rights[$r][3] = 1;
 		$this->rights[$r][4] = 'Dispatch';
 		$this->rights[$r][5] = 'allow';
 		$r++;
-		$this->rights[$r][0] = $this->numero . sprintf('%02d', (0 * 10) + $r + 1);
+		$this->rights[$r][0] = ($this->numero - 1) . sprintf('%02d', (0 * 10) + $r + 1);
 		$this->rights[$r][1] = 'AllowPurchase';
 		$this->rights[$r][3] = 1;
 		$this->rights[$r][4] = 'Purchase';
 		$this->rights[$r][5] = 'allow';
 		$r++;
-		$this->rights[$r][0] = $this->numero . sprintf('%02d', (0 * 10) + $r + 1);
+		$this->rights[$r][0] = ($this->numero - 1) . sprintf('%02d', (0 * 10) + $r + 1);
 		$this->rights[$r][1] = 'AllowOrder';
 		$this->rights[$r][3] = 1;
 		$this->rights[$r][4] = 'Order';
 		$this->rights[$r][5] = 'allow';
 		$r++;
-		$this->rights[$r][0] = $this->numero . sprintf('%02d', (0 * 10) + $r + 1);
+		$this->rights[$r][0] = ($this->numero - 1) . sprintf('%02d', (0 * 10) + $r + 1);
 		$this->rights[$r][1] = 'AllowPicking';
 		$this->rights[$r][3] = 1;
 		$this->rights[$r][4] = 'Picking';
 		$this->rights[$r][5] = 'allow';
 		$r++;
-		$this->rights[$r][0] = $this->numero . sprintf('%02d', (0 * 10) + $r + 1);
+		$this->rights[$r][0] = ($this->numero - 1) . sprintf('%02d', (0 * 10) + $r + 1);
 		$this->rights[$r][1] = 'AllowShipping';
 		$this->rights[$r][3] = 1;
 		$this->rights[$r][4] = 'Shipment';
 		$this->rights[$r][5] = 'allow';
 		$r++;
-		$this->rights[$r][0] = $this->numero . sprintf('%02d', (0 * 10) + $r + 1);
+		$this->rights[$r][0] = ($this->numero - 1) . sprintf('%02d', (0 * 10) + $r + 1);
 		$this->rights[$r][1] = 'AllowInventory';
 		$this->rights[$r][3] = 1;
 		$this->rights[$r][4] = 'Inventory';
 		$this->rights[$r][5] = 'allow';
 		$r++;
-		$this->rights[$r][0] = $this->numero . sprintf('%02d', (0 * 10) + $r + 1);
+		$this->rights[$r][0] = ($this->numero - 1) . sprintf('%02d', (0 * 10) + $r + 1);
 		$this->rights[$r][1] = 'AllowRemove';
 		$this->rights[$r][3] = 1;
 		$this->rights[$r][4] = 'Remove';
 		$this->rights[$r][5] = 'allow';
 		$r++;
-		$this->rights[$r][0] = $this->numero . sprintf('%02d', (0 * 10) + $r + 1);
+		$this->rights[$r][0] = ($this->numero - 1) . sprintf('%02d', (0 * 10) + $r + 1);
 		$this->rights[$r][1] = 'AllowInventoryPlus';
 		$this->rights[$r][3] = 1;
 		$this->rights[$r][4] = 'InventoryPlus';
 		$this->rights[$r][5] = 'allow';
 		$r++;
-		$this->rights[$r][0] = $this->numero . sprintf('%02d', (0 * 10) + $r + 1);
+		$this->rights[$r][0] = ($this->numero - 1) . sprintf('%02d', (0 * 10) + $r + 1);
 		$this->rights[$r][1] = 'AllowManufactureOrder';
 		$this->rights[$r][3] = 1;
 		$this->rights[$r][4] = 'ManufactureOrder';
 		$this->rights[$r][5] = 'allow';
 		$r++;
-		$this->rights[$r][0] = $this->numero . sprintf('%02d', (0 * 10) + $r + 1);
+		$this->rights[$r][0] = ($this->numero - 1) . sprintf('%02d', (0 * 10) + $r + 1);
 		$this->rights[$r][1] = 'AllowProspect';
 		$this->rights[$r][3] = 1;
 		$this->rights[$r][4] = 'Prospect';
@@ -201,6 +202,29 @@ class modExtDirect extends DolibarrModules
 		if (!isset($conf->global->DIRECTCONNECT_AUTO_USER)) {
 			dolibarr_set_const($this->db, 'DIRECTCONNECT_AUTO_USER', '', 'chaine', 1, 'Automatic asigned user id', 0);
 		}
+
+		include_once DOL_DOCUMENT_ROOT.'/core/class/extrafields.class.php';
+		$extrafields = new ExtraFields($this->db);
+		$extrafields->addExtraField(
+			'mobilid_countstep', // Code of attribute
+			"SecondlyLotQty", // label of attribute
+			'double', // Type of attribute ('boolean', 'int', 'text', 'varchar', 'date', 'datehour','price','phone','mail','password','url','select','checkbox', ...)
+			20, // Position of attribute
+			'24,8', // Size/length of attribute
+			'product_lot', // Element type ('member', 'product', 'thirdparty', ...)
+			0, // Is field unique or not
+			0, // Is field required or not
+			'', // Defaulted value (In database. use the default_value feature for default value on screen. Example: '', '0', 'null', 'avalue')
+			0, // Params for field (ex for select list : array('options' => array(value'=>'label of option')) )
+			1, // Is attribute always editable regardless of the document status
+			'', // Permission to check
+			1, // Visibilty
+			0, // Deprecated. Use visibility instead.
+			'', // Computed value
+			$conf->entity, // Entity of extrafields (for multicompany modules)
+			'extdirect@extdirect', // Language file
+			'isModEnabled("extdirect")' // Condition to have the field enabled or not
+		);
 
 		return $this->_init($sql, $options);
 	}

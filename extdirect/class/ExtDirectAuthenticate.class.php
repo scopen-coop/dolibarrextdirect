@@ -34,8 +34,10 @@ dol_include_once('/extdirect/core/modules/modExtDirect.class.php');
  */
 class ExtDirectAuthenticate extends ExtDirect
 {
+	/** @var User */
 	private $_user;
 
+	/** @var array<string> */
 	private $_modulesAvailable = array('Dispatch', 'Purchase', 'Order', 'Picking', 'Shipment', 'Inventory', 'Remove', 'InventoryPlus', 'ManufactureOrder', 'Prospect');
 
 	/** Constructor
@@ -58,13 +60,13 @@ class ExtDirectAuthenticate extends ExtDirect
 	 * Ext.direct method to create app generated uuid and name in dolibarr system. System
 	 * will have to asign user and acknowledge id (access key) to the application, which can be read afterwards
 	 *
-	 * @param unknown_type $params object or object array with with 'requestid' connection requestor identifcation
+	 * @param array<stdClass>|stdClass $params array with with 'requestid' connection requestor identifcation
 	 *                             'app_id' app uuid
 	 *                             'app_name' app name
 	 *                             'dev_platform' device platform
 	 *                             'dev_type' device version
 	 *
-	 * @return return mixed stdClass  or int <0 if error
+	 * @return array<stdClass>|stdClass|int|string return data or error number/message
 	 */
 	public function createAuthentication($params)
 	{
@@ -86,7 +88,7 @@ class ExtDirectAuthenticate extends ExtDirect
 		if (is_array($params)) {
 			return $paramArray;
 		} else {
-			return $param;
+			return $paramArray[0];
 		}
 	}
 
@@ -96,7 +98,7 @@ class ExtDirectAuthenticate extends ExtDirect
 	 * @param   stdClass    $param  filter with elements:
 	 *                              app_id  app_id of application to get authentication info from
 	 *                              ack_id  access key to get authentication info and start a login session
-	 * @return return mixed stdClass if success or int <0 if error
+	 * @return stdClass|int|string result data or error number/message
 	 */
 	public function readAuthentication(stdClass $param)
 	{
@@ -108,6 +110,7 @@ class ExtDirectAuthenticate extends ExtDirect
 		$ack_id = '';
 		$app_id = '';
 		$app_version = '';
+		$app_usercode = '';
 
 		$moduleInfo = new modExtDirect($this->db);
 
@@ -116,6 +119,7 @@ class ExtDirectAuthenticate extends ExtDirect
 				if ($filter->property == 'ack_id') $ack_id=$filter->value;
 				elseif ($filter->property == 'app_id') $app_id=$filter->value;
 				elseif ($filter->property == 'app_version') $app_version=$filter->value;
+				elseif ($filter->property == 'app_usercode') $app_usercode=$filter->value;
 			}
 		}
 		// check if server user is set, if not return empty result
@@ -128,7 +132,18 @@ class ExtDirectAuthenticate extends ExtDirect
 				$this->ack_id = uniqid('llx', true);
 			}
 		}
-		$this->_user->fetch($this->fk_user);
+		if ($app_usercode && $this->identify && !empty($conf->global->MOBILIDCONNECT_IDENTIFY_MODE) && $conf->global->MOBILIDCONNECT_IDENTIFY_MODE > 1) {
+			$userIdPin = $this->getUserFromCode($app_usercode);
+			if ($userIdPin > 0) {
+				$this->fk_user = $userIdPin;
+				$this->_user->fetch($userIdPin);
+			} elseif ($userIdPin < 0) {
+				return $userIdPin;
+			}
+		} else {
+			$this->_user->fetch($this->fk_user);
+		}
+
 		// update last connect date only for old app version
 		$this->date_last_connect=dol_now();
 		if (empty($app_version)) {
@@ -185,7 +200,7 @@ class ExtDirectAuthenticate extends ExtDirect
 			$result->timezone = getServerTimeZoneString();
 			$result->webview_name = $this->webview_name;
 			$result->webview_version = $this->webview_version;
-			$result->identify = $this->identify;
+			$result->identify = ($this->identify ? (!empty($conf->global->MOBILIDCONNECT_IDENTIFY_MODE) ? $conf->global->MOBILIDCONNECT_IDENTIFY_MODE : 1) : 0);
 			$result->inventory_mode = $this->inventory_mode;
 			$result->modules = $this->getModules($this->_user);
 			// debug info can be removed for production
@@ -195,6 +210,15 @@ class ExtDirectAuthenticate extends ExtDirect
 			$result->session_cookie_samesite = $cookieParams['samesite'];
 			$result->session_cookie_secure =  $cookieParams['secure'];
 			!empty($conf->multicurrency->enabled) ? $result->multicurrency_enabled = 1 : $result->multicurrency_enabled = 0;
+			$result->mobilid_view_order = (!empty($conf->global->MOBILID_VIEW_ORDER) ? ExtDirect::fixJsonString($conf->global->MOBILID_VIEW_ORDER) : '');
+			$result->mobilid_view_inventory = (!empty($conf->global->MOBILID_VIEW_INVENTORY) ? ExtDirect::fixJsonString($conf->global->MOBILID_VIEW_INVENTORY) : '');
+			$result->mobilid_view_picking = (!empty($conf->global->MOBILID_VIEW_PICKING) ? ExtDirect::fixJsonString($conf->global->MOBILID_VIEW_PICKING) : '');
+			$result->mobilid_view_prospect = (!empty($conf->global->MOBILID_VIEW_PROSPECT) ? ExtDirect::fixJsonString($conf->global->MOBILID_VIEW_PROSPECT) : '');
+			$result->mobilid_view_dispatch = (!empty($conf->global->MOBILID_VIEW_DISPATCH) ? ExtDirect::fixJsonString($conf->global->MOBILID_VIEW_DISPATCH) : '');
+			$result->mobilid_view_remove = (!empty($conf->global->MOBILID_VIEW_REMOVE) ? ExtDirect::fixJsonString($conf->global->MOBILID_VIEW_REMOVE) : '');
+			$result->mobilid_view_purchase = (!empty($conf->global->MOBILID_VIEW_PURCHASE) ? ExtDirect::fixJsonString($conf->global->MOBILID_VIEW_PURCHASE) : '');
+			$result->mobilid_view_shipment = (!empty($conf->global->MOBILID_VIEW_SHIPMENT) ? ExtDirect::fixJsonString($conf->global->MOBILID_VIEW_SHIPMENT) : '');
+			$result->mobilid_view_manufactureorder = (!empty($conf->global->MOBILID_VIEW_MANUFACTUREORDER) ? ExtDirect::fixJsonString($conf->global->MOBILID_VIEW_MANUFACTUREORDER) : '');
 			return $result;
 		}
 	}
@@ -202,18 +226,18 @@ class ExtDirectAuthenticate extends ExtDirect
 	/**
 	 * Ext.direct method to update authorisation details.
 	 *
-	 * @param unknown_type $param parameter
+	 * @param array<stdClass>|stdClass $params parameter
 	 *
-	 * @return return  int PARAMETERERROR
+	 * @return array<stdClass>|stdClass|int|string result data or error number/message
 	 */
-	public function updateAuthentication($param)
+	public function updateAuthentication($params)
 	{
 		global $conf;
 
 		if (!isset($this->db)) return CONNECTERROR;
 		// dolibarr update settings
 
-		$paramArray = ExtDirect::toArray($param);
+		$paramArray = ExtDirect::toArray($params);
 		foreach ($paramArray as &$param) {
 			// prepare fields
 			if ($param->id && !empty($param->ack_id)) {
@@ -228,7 +252,11 @@ class ExtDirectAuthenticate extends ExtDirect
 					if (($res = $this->update($this->_user)) < 0) return ExtDirect::getDolError($res, $this->errors, $this->error);
 				}
 				// only login with valid access key
-				$this->_user->fetch($this->fk_user);
+				if ($param->fk_user > 0 && $this->identify && !empty($conf->global->MOBILIDCONNECT_IDENTIFY_MODE) && $conf->global->MOBILIDCONNECT_IDENTIFY_MODE > 1) {
+					$this->_user->fetch($param->fk_user);
+				} else {
+					$this->_user->fetch($this->fk_user);
+				}
 				if ($param->ack_id == $this->ack_id) {
 					$_SESSION['dol_login'] = $this->_user->login;
 					$_SESSION['dol_tz'] = $param->local_timezone_offset;
@@ -250,18 +278,18 @@ class ExtDirectAuthenticate extends ExtDirect
 				return PARAMETERERROR;
 			}
 		}
-		if (is_array($param)) {
+		if (is_array($params)) {
 			return $paramArray;
 		} else {
-			return $param;
+			return $paramArray[0];
 		}
 	}
 
 	/**
 	 * Ext.direct method to delete application uuid entry.
 	 *
-	 * @param unknown_type $params with app id
-	 * @return return mixed stdClass or int <0 if error
+	 * @param array<stdClass>|stdClass $params with app id
+	 * @return array<stdClass>|stdClass|string result data or error message
 	 */
 	public function destroyAuthentication($params)
 	{
@@ -280,7 +308,7 @@ class ExtDirectAuthenticate extends ExtDirect
 		if (is_array($params)) {
 			return $paramArray;
 		} else {
-			return $param;
+			return $paramArray[0];
 		}
 	}
 
@@ -334,6 +362,19 @@ class ExtDirectAuthenticate extends ExtDirect
 			} else {
 				$allowed = true;
 			}
+
+			// if inventory mode is set, do not allow modules who do stock movements
+			if ($this->inventory_mode) {
+				if (!empty($conf->global->MOBILIDCONNECT_NOT_ALLOW_IN_INVENTORY_MODE)) {
+					$notAllowedInInventorymode = explode(',', $conf->global->MOBILIDCONNECT_NOT_ALLOW_IN_INVENTORY_MODE);
+				} else {
+					$notAllowedInInventorymode = array('Inventory', 'Picking', 'Dispatch', 'Remove', 'ManufactureOrder');
+				}
+				if (in_array($module, $notAllowedInInventorymode)) {
+					$allowed = false;
+				}
+			}
+
 			if ($allowed && method_exists($user, 'hasRight')) {
 				if (ExtDirect::checkDolVersion(0, '15.0', '16.0') && $originModule == 'product') {
 					// hasRight for v15 and v16 need 'product' else product module not found
@@ -374,5 +415,46 @@ class ExtDirectAuthenticate extends ExtDirect
 		$diff = self::prepareField($diff, $param, $this, 'inventory_mode', 'inventory_mode');
 
 		return $diff;
+	}
+
+	/**
+	 * private method to get user id from extrafield or password
+	 *
+	 * @param string $code string with code
+	 * @return int user id or 0 when not found
+	 */
+	private function getUserFromCode($code) {
+		if (ExtDirect::checkOptionalExist(new User($this->db), 'pincode')) {
+			// get user by pincode extrafield
+			$sql = "SELECT fk_object FROM ".MAIN_DB_PREFIX."user_extrafields WHERE pincode = '".$this->db->escape($code)."'";
+			$resql=$this->db->query($sql);
+			if ($resql) {
+				$num = $this->db->num_rows($resql);
+				if ($num == 1) {
+					$obj = $this->db->fetch_object($resql);
+					return $obj->fk_object;
+				} elseif ($num > 1) {
+					return DUPLICATEERROR;
+				}
+			} else {
+				return 0;
+			}
+		}
+		// get user by crypted password value
+		$sql = "SELECT rowid FROM ".MAIN_DB_PREFIX."user WHERE pass_crypted = '".$this->db->escape($code)."'";
+		$resql=$this->db->query($sql);
+		if ($resql) {
+			$num = $this->db->num_rows($resql);
+			if ($num == 1) {
+				$obj = $this->db->fetch_object($resql);
+				return $obj->rowid;
+			} elseif ($num > 1) {
+				return DUPLICATEERROR;
+			} else {
+				return 0;
+			}
+		} else {
+			return 0;
+		}
 	}
 }

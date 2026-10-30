@@ -1,13 +1,13 @@
 # Dolibarr language file - en_GB - extdirect
 CHARSET = UTF-8
 DirectConnect = Ext.direct connector
-Module202002Name = Ext.direct connector
-Module202002Desc = Connect to external applications which use Ext.direct data interface
+Module202003Name = Mobilid connector
+Module202003Desc = Connect to Mobilid application
 Applications=Applications
-DirectConnectSetup=Ext.direct connector setup
+DirectConnectSetup=Mobilid connector setup
 Parameters=Parameters
 Value=Value
-AutoAsignAbility=Enable Automatic User Login Assignment <i>[not recommended]</i></br> <b><font color="red">Warning:</font> Anyone who has access to your URL has access to your data.</b>
+AutoAsignAbility=Enable automatic user login assignment, be careful! everybody who has access to your url has access to your data.
 Modify=Modify
 AutoUser=User to assign to all device connections
 AppId=Application ID

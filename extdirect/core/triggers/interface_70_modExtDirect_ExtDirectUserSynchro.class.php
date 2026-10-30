@@ -121,6 +121,18 @@ class InterfaceExtDirectUserSynchro extends DolibarrTriggers
 				}
 			}
 		}
+		if ($action == 'INVENTORYLINE_CREATE') {
+			if (!empty($conf->global->MOBILIDCONNECT_INVENTORY_FROM_ZERO)) {
+				/** @var InventoryLine $object */
+				dol_syslog("Trigger '".$this->name."' for action '$action' launched by ".__FILE__.". id=".$object->id);
+
+				$object->qty_view = 0; // Force qty_view to 0 if MOBILIDCONNECT_INVENTORY_FROM_ZERO is set
+				$result = $object->update($user, 1);
+				if ($result < 0) {
+					dol_syslog("Trigger failed'".$this->name."' for action '$action' launched by ".__FILE__.". id=".$object->id);
+				}
+			}
+		}
 		return 0;
 	}
 }

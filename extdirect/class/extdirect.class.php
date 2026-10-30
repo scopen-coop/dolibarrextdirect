@@ -72,28 +72,47 @@ if (!defined("NOTENABLEDERROR"))     define("NOTENABLEDERROR", -1008);
  */
 class ExtDirect
 {
+	/** @var DoliDb */
 	public $db;                         //!< To store db handler
+	/** @var int|string */
 	public $error;                          //!< To return error code (or message)
-	public $errors=array();             //!< To return several error codes (or messages)
+	/** @var array */
+	public $errors = array();             //!< To return several error codes (or messages)
 
+	/** @var int */
 	public $id;
 
+	/** @var int */
 	public $fk_user;
+	/** @var string */
 	public $app_id;
+	/** @var string */
 	public $app_name;
+	/** @var string */
 	public $ack_id;
+	/** @var string */
 	public $requestid;
-	public $datec='';
-	public $date_last_connect='';
+	/** @var string */
+	public $datec = '';
+	/** @var string */
+	public $date_last_connect = '';
+	/** @var string */
 	public $dev_platform;
+	/** @var string */
 	public $dev_type;
+	/** @var string */
 	public $webview_name;
+	/** @var string */
 	public $webview_version;
+	/** @var string */
 	public $identify;
+	/** @var int */
 	public $inventory_mode;
+	/** @var int */
 	public $entity;
 	// array with multiple records
-	public $dataset=array();
+	/** @var array */
+	public $dataset = array();
 
 	/**
 	 *  Constructor
@@ -573,9 +592,9 @@ class ExtDirect
 	/**
 	 * method to convert extdirect parameters to array of stdclass
 	 *
-	 * @param unknown_type $params can be array of stdclass or stdclass
+	 * @param array<stdClass>|array<array>|stdClass $params can be array of stdclass or stdclass
 	 *
-	 * @return return array of stdClass
+	 * @return array<stdClass>|array<array> of array of stdClass or array of array
 	 */
 	public static function toArray($params)
 	{
@@ -618,11 +637,11 @@ class ExtDirect
 	/**
 	 * method to check dolibarr compatibility
 	 *
-	 * @param Number $validate 0 = return version, 1 = return validation
+	 * @param int $validate 0 = return version, 1 = return validation
 	 * @param string $minVersion >=
 	 * @param string $maxVersion <=
 	 *
-	 * @return return validation 0 (not valid) or 1 (valid) or string with major.minor version
+	 * @return int|string validation 0 (not valid) or 1 (valid) or string with major.minor version
 	 */
 	public static function checkDolVersion($validate = 0, $minVersion = '', $maxVersion = '')
 	{
@@ -631,13 +650,13 @@ class ExtDirect
 
 		if ($validate) {
 			$minVersion = '6.0';
-			$maxVersion = '23.0'; // tested version
+			$maxVersion = '24.0'; // tested version
 		}
 		if (empty($minVersion) && empty($maxVersion)) {
 			return $dolMajorMinorVersion;
 		} else {
 			if (empty($minVersion)) $minVersion = '6.0';
-			if (empty($maxVersion)) $maxVersion = '23.0'; // debugging version
+			if (empty($maxVersion)) $maxVersion = '24.0'; // debugging version
 			if (version_compare($minVersion, $dolMajorMinorVersion, '<=') && version_compare($maxVersion, $dolMajorMinorVersion, '>=')) {
 				return 1;
 			} else {
@@ -650,10 +669,10 @@ class ExtDirect
 	 * method to get dolibarr error detail info
 	 *
 	 * @param int $errorCode dolibarr error code
-	 * @param Array $errors dolibarr errors array
+	 * @param array $errors dolibarr errors array
 	 * @param String $error dolibarr error string
 	 *
-	 * @return return String translated errorstring
+	 * @return String translated errorstring
 	 */
 	public static function getDolError($errorCode, $errors = null, $error = null)
 	{
@@ -676,9 +695,9 @@ class ExtDirect
 		$langs->load("mrp");
 
 		if (is_array($errors) && (count($errors) > 0)) {
-			foreach ($errors as $error) {
-				$transError = $langs->trans($error);
-				$errorText = $errorText . ' ' . $transError ? $transError : $error;
+			foreach ($errors as $err) {
+				$transError = $langs->trans($err);
+				$errorText = $errorText . ' ' . $transError ? $transError : $err;
 			}
 		} elseif (is_string($error)) {
 			$transError = $langs->trans($error);
@@ -686,6 +705,7 @@ class ExtDirect
 		} else {
 			$errorText = strval($errorCode);
 		}
+		dol_syslog("ExtDirect::getDolError " . $errorText, LOG_ERR);
 
 		return $errorText;
 	}
@@ -695,7 +715,7 @@ class ExtDirect
 	 *
 	 * @param int $timestamp timestamp with time
 	 *
-	 * @return return int timestamp without time
+	 * @return int timestamp without time
 	 */
 	public static function dateTimeToDate($timestamp)
 	{
@@ -711,13 +731,13 @@ class ExtDirect
 	 * static method to copy field into dolibarr object element and check if changed
 	 *
 	 * @param boolean $diff diff status of param elements
-	 * @param unknown_type $param object with fields
-	 * @param unknown_type $object dolibarr object
+	 * @param mixed $param object with fields
+	 * @param mixed $object dolibarr object
 	 * @param string $paramName param object field name, if null $param is value
 	 * @param string $propertyName object property name, if null $object is value
-	 * @param unknown_type $default default value
-	 * @param unknown_type $paramIndex array index if paramName is array
-	 * @param unknown_type $propertyIndex array index if propertyName is array
+	 * @param mixed $default default value
+	 * @param mixed $paramIndex array index if paramName is array
+	 * @param mixed $propertyIndex array index if propertyName is array
 	 *
 	 * @return boolean true if param $diff true or true on param element change
 	 */
@@ -764,7 +784,7 @@ class ExtDirect
 	 *  @param			user		$user				user
 	 *  @param			array		$moduleConstants 	default module constants
 	 *
-	 *	@return			array of stdClass result data with specific constant value or module constants
+	 *	@return			array<stdClass> of stdClass result data with specific constant value or module constants
 	 */
 	public static function readConstants(DoliDb $db, stdClass $params, user $user, $moduleConstants = array())
 	{
@@ -785,10 +805,21 @@ class ExtDirect
 			}
 		} else {
 			foreach ($constants as $constant) {
-				$row = new stdClass;
-				$row->constant = $constant;
-				$row->value = dolibarr_get_const($db, $constant, $entity);
-				array_push($results, $row);
+				if (is_array($constant)) {
+					$row = new stdClass;
+					$row->constant = $constant['name'];
+					if (isset($constant['type']) && $constant['type'] == 'json' && !empty(dolibarr_get_const($db, $constant['name'], $entity))) {
+						$row->value = ExtDirect::fixJsonString(dolibarr_get_const($db, $constant['name'], $entity));
+					} else {
+						$row->value = dolibarr_get_const($db, $constant['name'], $entity);
+					}
+					array_push($results, $row);
+				} else {
+					$row = new stdClass;
+					$row->constant = $constant;
+					$row->value = dolibarr_get_const($db, $constant, $entity);
+					array_push($results, $row);
+				}
 			}
 		}
 		return $results;
@@ -801,7 +832,7 @@ class ExtDirect
 	 * @param   array   $visibilities     array of visibilities to show (1=visible on list and form, 2 = List only, 3=visible on form, 4=not visible on creation form, 5=list and view)
 	 * 												Default is array(1,3,4,5) (2 is not in the list because we want to show fields that are at least on form view)
 	 *
-	 * @return array array result data
+	 * @return array<stdClass> array result data
 	 */
 	public static function readOptionalModel($object, $visibilities = array(1, 3, 4, 5))
 	{
@@ -829,6 +860,9 @@ class ExtDirect
 				if (empty($enabled)) {
 					continue; // 0 = Never visible field
 				}
+				if (!is_numeric($enabled)) {
+					continue; // not a numeric visibility, skip field
+				}
 				if (!in_array(abs($enabled), $visibilities)) {
 					continue; // not in list of visibilities to show
 				}
@@ -849,12 +883,34 @@ class ExtDirect
 	}
 
 	/**
+	 * Check if an optional exists and enabled
+	 *
+	 * @param   Object  $object to check optional from
+	 * @param   String  $optional optional to check
+	 * @param   array   $visibilities     array of visibilities to show (1=visible on list and form, 2 = List only, 3=visible on form, 4=not visible on creation form, 5=list and view)
+	 * 												Default is array(1,3,4,5) (2 is not in the list because we want to show fields that are at least on form view)
+	 *
+	 * @return String label of optional, empty string if optional not found
+	 */
+	public static function checkOptionalExist($object, $optional, $visibilities = array(1, 3, 4, 5))
+	{
+		$results = self::readOptionalModel($object, $visibilities);
+
+		if (count($results) > 0) {
+			foreach ($results as $row) {
+				if ($row->name == $optional) return $row->label;
+			}
+		}
+		return '';
+	}
+
+	/**
 	 * Upload file to ECM
 	 *
-	 * @param Array     $param ExtDirect uploaded item
+	 * @param array     $param ExtDirect uploaded item
 	 * @param String    $dir   destination folder
 	 *
-	 * @return Array    ExtDirect response message
+	 * @return array    ExtDirect response message
 	 */
 	public static function fileUpload($param, $dir)
 	{
@@ -968,10 +1024,11 @@ class ExtDirect
 	 *  @param  array			$exclude        Array list of users id to exclude
 	 * 	@param	int				$disabled		If select list must be disabled
 	 *  @param  array|string	$include        Array list of users id to include. User '' for all users or 'hierarchy' to have only supervised users or 'hierarchyme' to have supervised + me
+	 *  @param  string 			$morefilter 	Add more filters into sql request (Example: 'employee = 1'). This value must not come from user input.
 	 * 	@return	string							HTML select string
 	 *  @see select_dolgroups()
 	 */
-	public function selectdolusers($selected = '', $htmlname = 'userid', $show_empty = 0, $exclude = null, $disabled = 0, $include = '')
+	public function selectdolusers($selected = '', $htmlname = 'userid', $show_empty = 0, $exclude = null, $disabled = 0, $include = '', $morefilter = '')
 	{
 		// phpcs:enable
 		global $conf, $user, $langs, $hookmanager;
@@ -1028,6 +1085,9 @@ class ExtDirect
 		if (!empty($conf->global->USER_HIDE_INACTIVE_IN_COMBOBOX)) {
 			$sql .= " AND u.statut <> 0";
 		}
+		if (!empty($morefilter)) {
+			$sql .= " " . $morefilter;
+		}
 
 		//Add hook to filter on user (for exemple on usergroup define in custom modules)
 		$reshook = $hookmanager->executeHooks('addSQLWhereFilterOnSelectUsers', array(), $this, $action);
@@ -1065,64 +1125,64 @@ class ExtDirect
 
 				while ($i < $num) {
 					$obj = $this->db->fetch_object($resql);
+					if ($obj->entity > 0) {
+						$userstatic->id = $obj->rowid;
+						$userstatic->lastname = $obj->lastname;
+						$userstatic->firstname = $obj->firstname;
+						$userstatic->photo = $obj->photo;
+						$userstatic->statut = $obj->status; // deprecated
+						$userstatic->status = $obj->status;
+						$userstatic->entity = $obj->entity;
+						$userstatic->admin = $obj->admin;
 
-					$userstatic->id = $obj->rowid;
-					$userstatic->lastname = $obj->lastname;
-					$userstatic->firstname = $obj->firstname;
-					$userstatic->photo = $obj->photo;
-					$userstatic->statut = $obj->status; // deprecated
-					$userstatic->status = $obj->status;
-					$userstatic->entity = $obj->entity;
-					$userstatic->admin = $obj->admin;
+						$disableline = '';
 
-					$disableline = '';
+						$labeltoshow = '';
 
-					$labeltoshow = '';
+						// $fullNameMode is 0=Lastname+Firstname (MAIN_FIRSTNAME_NAME_POSITION=1), 1=Firstname+Lastname (MAIN_FIRSTNAME_NAME_POSITION=0)
+						$fullNameMode = 0;
+						if (empty($conf->global->MAIN_FIRSTNAME_NAME_POSITION)) {
+							$fullNameMode = 1; //Firstname+lastname
+						}
+						$labeltoshow .= $userstatic->getFullName($langs, $fullNameMode, -1);
+						if (empty($obj->firstname) && empty($obj->lastname)) {
+							$labeltoshow .= $obj->login;
+						}
 
-					// $fullNameMode is 0=Lastname+Firstname (MAIN_FIRSTNAME_NAME_POSITION=1), 1=Firstname+Lastname (MAIN_FIRSTNAME_NAME_POSITION=0)
-					$fullNameMode = 0;
-					if (empty($conf->global->MAIN_FIRSTNAME_NAME_POSITION)) {
-						$fullNameMode = 1; //Firstname+lastname
-					}
-					$labeltoshow .= $userstatic->getFullName($langs, $fullNameMode, -1);
-					if (empty($obj->firstname) && empty($obj->lastname)) {
-						$labeltoshow .= $obj->login;
-					}
+						// Complete name with more info
+						$moreinfo = '';
+						if (!empty($conf->global->MAIN_SHOW_LOGIN)) {
+							$moreinfo .= ($moreinfo ? ' - ' : ' (').$obj->login;
+						}
+						if (!$obj->entity) {
+							$moreinfo .= ($moreinfo ? ' - ' : ' (').$langs->trans("AllEntities");
+						} else {
+							$moreinfo .= ($moreinfo ? ' - ' : ' (').($obj->label ? $obj->label : $langs->trans("EntityNameNotDefined"));
+						}
+						$moreinfo .= ($moreinfo ? ')' : '');
+						if ($disableline && $disableline != '1') {
+							$moreinfo .= ' - '.$disableline; // This is text from $enableonlytext parameter
+						}
+						$labeltoshow .= $moreinfo;
 
-					// Complete name with more info
-					$moreinfo = '';
-					if (!empty($conf->global->MAIN_SHOW_LOGIN)) {
-						$moreinfo .= ($moreinfo ? ' - ' : ' (').$obj->login;
+						$out .= '<option value="'.$obj->rowid.'_'.($obj->entity ? $obj->entity : 0).'"';
+						if ($disableline) {
+							$out .= ' disabled';
+						}
+						if ((is_object($selected) && $selected->id == $obj->rowid) || (!is_object($selected) && in_array($obj->rowid.'_'.($obj->entity ? $obj->entity : 0), $selected))) {
+							$out .= ' selected';
+						}
+						$out .= ' data-html="';
+						$outhtml = '';
+						// if (!empty($obj->photo)) {
+						$outhtml .= $userstatic->getNomUrl(-3, '', 0, 1, 24, 1, 'login', '', 1).' ';
+						// }
+						$outhtml .= $labeltoshow;
+						$out .= dol_escape_htmltag($outhtml);
+						$out .= '">';
+						$out .= $labeltoshow;
+						$out .= '</option>';
 					}
-					if (!$obj->entity) {
-						$moreinfo .= ($moreinfo ? ' - ' : ' (').$langs->trans("AllEntities");
-					} else {
-						$moreinfo .= ($moreinfo ? ' - ' : ' (').($obj->label ? $obj->label : $langs->trans("EntityNameNotDefined"));
-					}
-					$moreinfo .= ($moreinfo ? ')' : '');
-					if ($disableline && $disableline != '1') {
-						$moreinfo .= ' - '.$disableline; // This is text from $enableonlytext parameter
-					}
-					$labeltoshow .= $moreinfo;
-
-					$out .= '<option value="'.$obj->rowid.'_'.($obj->entity ? $obj->entity : 0).'"';
-					if ($disableline) {
-						$out .= ' disabled';
-					}
-					if ((is_object($selected) && $selected->id == $obj->rowid) || (!is_object($selected) && in_array($obj->rowid.'_'.($obj->entity ? $obj->entity : 0), $selected))) {
-						$out .= ' selected';
-					}
-					$out .= ' data-html="';
-					$outhtml = '';
-					// if (!empty($obj->photo)) {
-					$outhtml .= $userstatic->getNomUrl(-3, '', 0, 1, 24, 1, 'login', '', 1).' ';
-					// }
-					$outhtml .= $labeltoshow;
-					$out .= dol_escape_htmltag($outhtml);
-					$out .= '">';
-					$out .= $labeltoshow;
-					$out .= '</option>';
-
 					$i++;
 				}
 			} else {
@@ -1213,6 +1273,62 @@ class ExtDirect
 		}
 
 		return $origin;
+	}
+
+	/**
+	 * fix and clean JSON string
+	 *
+	 * @param string $json The JSON string to fix
+	 * @return string The fixed JSON string or error message if not fixable
+	 */
+	public static function fixJsonString($json)
+	{
+		// remove html entities
+		$json = html_entity_decode($json, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+		// remove html breaks and line breaks
+		$json = str_replace(array('<br />', "<br>"), '', $json);
+
+		// Remove any non-ASCII Characters
+  		$json = preg_replace("/[^\x01-\x7F]/","", $json);
+
+		// Add double quotes around unquoted keys
+		$json = preg_replace('/(?<!")([{,\s])([a-zA-Z0-9_]+)\s*:/', '$1"$2":', $json);
+
+		// Replace single quotes with double quotes
+		$json = str_replace("'", '"', $json);
+
+		$tmp = json_decode($json);
+		$error = json_last_error();
+		if ($error !== JSON_ERROR_NONE) {
+			switch (json_last_error()) {
+				case JSON_ERROR_NONE:
+					$error =  ' - No errors';
+				break;
+				case JSON_ERROR_DEPTH:
+					$error =  ' - Maximum stack depth exceeded';
+				break;
+				case JSON_ERROR_STATE_MISMATCH:
+					$error = ' - Underflow or the modes mismatch';
+				break;
+				case JSON_ERROR_CTRL_CHAR:
+					$error =  ' - Unexpected control character found';
+				break;
+				case JSON_ERROR_SYNTAX:
+					$error =  ' - Syntax error, malformed JSON';
+				break;
+				case JSON_ERROR_UTF8:
+					$error =  ' - Malformed UTF-8 characters, possibly incorrectly encoded';
+				break;
+				default:
+					$error =  ' - Unknown error';
+				break;
+			}
+			return 'Error: '.$error;
+		}
+
+		$json = json_encode($tmp);
+
+		return $json;
 	}
 
 	/**
