@@ -1,193 +1,94 @@
-## Dolibarr ExtDirect ##
+# MOBILID FOR <a href="https://www.dolibarr.org">DOLIBARR ERP CRM</a>
 
-Dolibarr Module to connect the Dolibarr ERP system to Sencha Touch, a high-performance HTML5 mobile application framework or Sencha Ext JS, a business-grade web application development framework.
+![Mobilid logo](img/object_mobilid.png) 
 
-Ext Direct allows for seamless communication between the client-side and server-side, uses raw HTTP posts with little overhead using low data bandwidth and improved performance.
+## Mobilid connector Module
 
-The module provides a set of Ext Direct compatible php classes. 
+### Features of Mobilid:
 
-**CRUD methods you can seamless integrate in your client-side data stores:**
+Easy management of products - orders - third parties on small screen devices.
+Management by automatic barcode reading, no need for search fields.
 
-PHP class:
+---
 
-    class ExtDirectProduct extends Product
-    {
-    	public function __construct() {
-    		...
-    	}
-    	public function readProduct(stdClass $param) {
-    		...
-    	}
-    	public function createProduct($params) {
-    		...
-    	}
-    	public function updateProduct($params) {
-    		...
-    	}
-    	public function destroyProduct($params) {
-    		...
-    	}
-    }
+## Version
 
-Client CRUD calls:
-	
-    
-	Ext.ns("Ext.app.REMOTING_API");
-    Ext.app.REMOTING_API = {
-    	"id":"dolibarr_connector",
-    	"url":"http://localhost/dolibarr/htdocs/extdirect/router.php",
-    	"type":"remoting",
-    	"actions":{
-    		"ExtDirectProduct":[
-    		     {"name":"readProduct","len":1},
-    		     {"name":"createProduct","len":1},
-    		     {"name":"updateProduct","len":1},
-    		     {"name":"destroyProduct","len":1},
-    		     {"name":"readProductList","len":1}
-    		],
-			...
-		},
-    		"total":2200
-    };
-    Ext.Direct.addProvider(Ext.app.REMOTING_API);
-    
-	Ext.getStore('product').setProxy({
-		type: 'direct',
-		api: {
-			create: ExtDirectProduct.createProduct,
-			read: ExtDirectProduct.readProduct,
-			update: ExtDirectProduct.updateProduct,
-			destroy: ExtDirectProduct.destroyProduct
-		}
-	});
+Mobilid Connector 1.0
+Need Dolibarr 4 mini
 
-	Ext.getStore('productlist').setProxy({
-		type: 'direct',
-		directFn: ExtDirectProduct.readProductList,
-		reader: {
-			rootProperty: 'data'
-		}
-	});
+---
 
-	// enable total property in result output
-	Ext.getStore('productlist').on('beforeload', function(store, operation, eOpts) {
-		operation.setParams({
-			include_total: true
-		});
-	}, this);
+## Install
 
-	Ext.getStore('productlist').load();
-	
-	...
-	var products = Ext.getStore('product');
-    var productData = {
-    	ref: 'CT0001',
-    	label: 'product 1',	
-    	type: 0,
-    	description: 'product description',
-    	...
-    	barcode: '1234567890005',
-    	barcode_type: 2	
-    };
-    var product = Ext.create('MyApp.model.Product',productData);
-    
-    products.add(product);					
-    products.sync();
-    products.clearFilter();
-    products.filter(Ext.create('Ext.util.Filter',{property:"ref",value:'CT0001'}));
-    products.load({
-    	callback: function (records) {
-    		Ext.Array.each(records,function (record) {
-    			record.set('description','updated product');
-    		});
-    		products.sync();
-    	}
-    });
-    ...
-    products.removeAt(products.find('ref','CT0001'));
-    products.sync();
+### From the ZIP file and GUI interface
 
-For client File uploads create an upload fieldset like below, set extTID field value with related object id. Submit your form to router.php.
-
-	{
-		xtype: 'fieldset',
-		itemId: 'filefieldset',
-		title: 'File',
-		items:[
-			{
-				xtype: 'hiddenfield',
-				name: 'extType',
-				value: "rpc"
-			},
-			{
-				xtype: 'hiddenfield',
-				itemId: 'exttid',
-				name: 'extTID'
-			},
-			{
-				xtype: 'hiddenfield',
-				name: 'extAction',
-				itemId: 'extaction',
-				value: "ExtDirectCommande"
-			},
-			{
-				xtype: 'hiddenfield',
-				name: 'extMethod',
-				value: "fileUpload"
-			},
-			{
-				xtype: 'hiddenfield',
-				name: 'extUpload',
-				value: "true"
-			},
-			{
-				xtype: "filefield",
-				label: "Select file",
-				capture: "environment",
-				name: 'file'
-			}
-		]
-	}
-
-**Currently provided Classes:**
-
-- Authentication
-- Translation
-- Products
-- Customer orders
-- Customer shipments
-- Activity tracking
-- Customers/Suppliers
-- Contacts
-- Categories
-- Agenda
-- Supplier orders
-- Interventions
-- https://github.com/fappels/dolibarr-shipmentpackage
-- Manufacture orders
-- Inventories
+- If you get the module in a zip file (like when downloading it from the market place [Dolistore](https://www.dolistore.com)), go into
+menu ```Home - Setup - Modules - Deploy external module``` and upload the zip file.
 
 
-> New classes will be added.
+Note: If this screen tell you there is no custom directory, check your setup is correct: 
 
-**Authentication system:**
+- In your Dolibarr installation directory, edit the ```htdocs/conf/conf.php``` file and check that following lines are not commented:
 
-The module uses an authentication system different from the usual login/password authentication. Instead authentication is done by sending a key for each app installation to the server. In the module setup page the system administrator can assign a user to the installed application and the module will return a unique access key to the app. You can also enable auto user assignment in the module setup page, advised to only use this for testing or demo purposes.
+    ```php
+    //$dolibarr_main_url_root_alt ...
+    //$dolibarr_main_document_root_alt ...
+    ```
 
-**Activity tracking system:**
+- Uncomment them if necessary (delete the leading ```//```) and assign a sensible value according to your Dolibarr installation
 
-Can be used to track when client app is started, when the app started editing or doing an action on a certain object, Following items are tracked: user, user alias, app name, time, activity name, activity status, object id.
+    For example :
 
-**Usage:**
+    - UNIX:
+        ```php
+        $dolibarr_main_url_root_alt = '/custom';
+        $dolibarr_main_document_root_alt = '/var/www/Dolibarr/htdocs/custom';
+        ```
 
-For more details on how to use the Classes in your client side code, you can examine the provided jasmine unit tests in file extdirect/testing/test.js. You can run the test with URL "http://your.server.net/.../htdocs/extdirect/testing/", enable auto superAdmin assignment for this and set admin language to en_US.
-At least three warehouses, 2 multiprice indexes, product extrafield called 'test' and one customer-supplier with rowid 1 must be available to succeed the test.
-Enable barcode module with at least EAN13 activated.
-Enable agenda module.
-Enable customer and supplier order modules with stock increase/decrease enabled.
-Demo data from dev/initdemo should work. Add two multiprice levels and a string extrafield 'test' labeled 'Test' with default value 'test' in product setup. Rename admin username to SuperAdmin.
+    - Windows:
+        ```php
+        $dolibarr_main_url_root_alt = '/custom';
+        $dolibarr_main_document_root_alt = 'C:/My Web Sites/Dolibarr/htdocs/custom';
+        ```
+        
+---
 
-**Supported Dolibarr Versions:**
+## Configuration
 
-- Min version:	6.0
-- Max version:	21.0
+From your browser:
+
+  - Log into Dolibarr as a super-administrator
+  - Go to "Setup" -> "Modules"
+  - You should now be able to find and enable the module and put ON
+  - Click on configuration of the module
+  - Connect you devices
+
+---
+
+## Suppression
+
+Put off the module and delete in custom/htdocs
+
+---
+
+## Please check also our other modules:
+- [Backorder](https://www.dolistore.com/en/modules/1311-Backorder.html) Backorder management. Keep track of your customer and supplier backorders.
+- [Block Outstanding](https://www.dolistore.com/en/modules/1282-Block-Outstanding.html) Block proposals, orders and invoices if outstanding payment amount exceeds limit.
+
+---
+
+## Licenses
+
+### Main code
+
+![GPLv3 logo](img/gplv3.png)
+
+GPLv3 or (at your option) any later version.
+
+See file COPYING for more information.
+
+#### Documentation
+
+All texts and readmes.
+
+![GFDL logo](img/gfdl.png)
